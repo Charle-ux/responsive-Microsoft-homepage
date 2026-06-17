@@ -1,0 +1,192 @@
+/* ================================================================
+   MEDIA QUERIES — media-queries.css
+   Linked after style.css in index.html so these rules override
+   the base styles when the screen shrinks.
+
+   THREE BREAKPOINTS:
+   ≤ 1100px  —  laptop / small desktop   → 2-column cards
+   ≤  768px  —  tablet                   → hide nav, stack feature
+   ≤  480px  —  mobile phone             → 1-column cards
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   BREAKPOINT 1 — Laptop / Small Desktop  (max-width: 1100px)
+   
+   What changes:
+   • Nav links get tighter padding so they still fit
+   • Cards drop from 4 columns → 2 columns
+   • Feature copy loses some padding
+   • Footer drops from 6 columns → 3 columns
+   • Hero text box gets a slightly wider max-width
+   ---------------------------------------------------------------- */
+@media (max-width: 1100px) {
+
+  /* Tighten nav link spacing so all 7 items still fit */
+  .primary-nav a {
+    padding:   0 8px;
+    font-size: 12.5px;
+  }
+
+  /* Cards: 4-col → 2-col grid */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Feature copy: reduce padding slightly */
+  .feature-copy {
+    padding: 48px 48px;
+  }
+
+  /* Footer: 6-col → 3-col grid */
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Hero text: allow slightly wider box */
+  .hero-text {
+    max-width: 500px;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   BREAKPOINT 2 — Tablet  (max-width: 768px)
+   
+   What changes:
+   • Primary nav links hidden (no room for them)
+   • "All Microsoft" button hidden
+   • Hero image gets a taller aspect ratio
+   • OneNote feature: image + text stack vertically
+   • Cards stay at 2 columns (still readable on tablets)
+   • Footer drops from 3 columns → 2 columns
+   • Footer bottom bar stacks vertically
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Hide the nav link row (a hamburger menu would go here in production) */
+  .primary-nav { display: none; }
+  .all-ms      { display: none; }
+
+  /* Hero: taller crop on smaller screens */
+  .hero-slide {
+    aspect-ratio: 16 / 7;
+  }
+
+  .hero-text {
+    padding:   0 32px;
+    max-width: 72%;
+  }
+
+  /* Feature banner: switch from 2-col side-by-side → stacked */
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Constrain the stacked image height so it doesn't swamp the screen */
+  .feature-img-side {
+    aspect-ratio: 16 / 6;
+    max-height:   260px;
+  }
+
+  .feature-img-side img {
+    height: 100%;
+    width:  100%;
+  }
+
+  .feature-copy {
+    padding: 36px 32px;
+  }
+
+  /* Cards: keep 2-col on tablet */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer: 2-col grid */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer bottom: stack locale + legal links vertically */
+  .footer-bottom-inner {
+    flex-direction:  column;
+    align-items:     flex-start;
+  }
+
+  .locale-toggle {
+    margin-bottom: 8px;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+   BREAKPOINT 3 — Mobile Phone  (max-width: 480px)
+   
+   What changes:
+   • Header gets tighter horizontal padding
+   • Hero switches to a fixed pixel height (aspect-ratio breaks on portrait)
+   • Hero body text hidden — headline + CTA only
+   • Cards drop to a single full-width column
+   • Section padding reduced
+   • Feature copy padding reduced
+   • Footer stays 2-col but with tighter gaps
+   ---------------------------------------------------------------- */
+@media (max-width: 480px) {
+
+  /* Header: reduce side padding on narrow screens */
+  .header-inner {
+    padding: 0 12px;
+  }
+
+  /* Hero: fixed height prevents extreme letterboxing on portrait phones */
+  .hero-slide {
+    aspect-ratio: unset;
+    height:       280px;
+  }
+
+  .hero-text {
+    padding:   0 20px;
+    max-width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.25rem;
+  }
+
+  /* Hide the paragraph — headline + button is enough on tiny screens */
+  .hero-text p {
+    display: none;
+  }
+
+  /* Cards: single full-width column */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Reduce section side padding */
+  .cards-section .wrap { padding: 0 16px; }
+  .biz-section   .wrap { padding: 0 16px; }
+  .social-strip  .wrap { padding: 0 16px; }
+
+  /* Feature copy: tighter padding on small screens */
+  .feature-copy {
+    padding: 28px 20px;
+  }
+
+  /* Footer: 2-col with tighter gaps */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap:     18px;
+    padding: 28px 16px 24px;
+  }
+
+  .footer-bottom-inner {
+    padding: 14px 16px;
+  }
+
+  .legal-links {
+    gap: 6px 12px;
+  }
+}
