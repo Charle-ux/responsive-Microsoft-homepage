@@ -1,14 +1,3 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-}
-
-body{
-    overflow-x: hidden;
-}
-
-
 /* ================================================================
    MICROSOFT HOMEPAGE REPLICA — style.css
    Layout tools: CSS Custom Properties · Flexbox · CSS Grid · 
@@ -71,6 +60,7 @@ body   {
   background:  var(--surface);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img    { display: block; max-width: 100%; height: auto; }
