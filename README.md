@@ -3,7 +3,7 @@
 A pixel-accurate, fully responsive replica of the Microsoft Landing Page, CSS3, Flexbox, and CSS Grid. No frameworks. No JavaScript libraries. No dependencies.
 
 LIVE DEMO
-[View Project]( )
+[View Project](  https://charle-ux.github.io/responsive-Microsoft-homepage/ )
 
 ## Technologies Used
 
